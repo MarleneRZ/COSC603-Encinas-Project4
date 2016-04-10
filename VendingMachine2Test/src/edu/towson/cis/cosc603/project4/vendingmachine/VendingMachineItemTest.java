@@ -21,14 +21,14 @@ public class VendingMachineItemTest {
 	@Test
 	public void testVendingMachineItem_1()
 		throws Exception {
-		String name = "";
+		String name = "cookies";
 		double price = 1.0;
 
 		VendingMachineItem result = new VendingMachineItem(name, price);
 
 		// add additional test code here
 		assertNotNull(result);
-		assertEquals("", result.getName());
+		assertEquals("cookies", result.getName());
 		assertEquals(1.0, result.getPrice(), 1.0);
 	}
 

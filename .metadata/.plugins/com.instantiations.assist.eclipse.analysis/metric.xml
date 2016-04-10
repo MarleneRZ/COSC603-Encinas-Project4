@@ -5,7 +5,7 @@
 			<null/>
 		</resourceFilter>
 	
-		#Sun Apr 10 12:47:01 EDT 2016
+		#Sun Apr 10 16:03:45 EDT 2016
 		com.instantiations.assist.eclipse.numberOfFieldsMetric.enabled=true
 		com.instantiations.assist.eclipse.averageBlockDepthMetric.enabled=true
 		com.instantiations.assist.eclipse.numberOfPackagesMetric.enabled=true
