@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>VendingMachineItemTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">edu.towson.cis.cosc603.project4.vendingmachine (Apr 10, 2016 11:08:11 AM)</a> &gt; <a href="../../index.html" class="el_group">VendingMachine</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.towson.cis.cosc603.project4.vendingmachine</a> &gt; <span class="el_source">VendingMachineItemTest.java</span></div><h1>VendingMachineItemTest.java</h1><pre class="source lang-java linenums">/**
+ * 
+ */
+package edu.towson.cis.cosc603.project4.vendingmachine;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * @author MarleneRZ
+ *
+ */
+<span class="fc" id="L16">public class VendingMachineItemTest {</span>
+
+	VendingMachineItem gummybear;
+	VendingMachineItem cracker;
+	String name;
+	double price;
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		
+		
+		try{
+			
+<span class="fc" id="L31">			gummybear = new VendingMachineItem(&quot;GummyBear&quot;, 1.00);</span>
+<span class="nc" id="L32">			cracker = new VendingMachineItem(&quot;AnimalCracker&quot;, -1.00);</span>
+		
+
+<span class="nc" id="L35">		}</span>
+<span class="fc" id="L36">		catch (VendingMachineException vme)</span>
+		{
+<span class="fc" id="L38">			return;</span>
+		}
+<span class="nc" id="L40">		fail(&quot;Expected VendingMachineException - Price cannot be less than zero&quot;);</span>
+		
+<span class="nc" id="L42">	}</span>
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+	
+<span class="fc" id="L50">		gummybear = null;</span>
+<span class="fc" id="L51">		cracker = null;</span>
+<span class="fc" id="L52">	}</span>
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItem#VendingMachineItem(java.lang.String, double)}.
+	 */
+	
+	@Test
+	public void testVendingMachineItem() {
+
+		
+		
+		
+		// Existence test
+<span class="fc" id="L65">	    assertNotNull(&quot;GummyBear item exists&quot;, </span>
+<span class="fc" id="L66">	    		gummybear);</span>
+<span class="fc" id="L67">	    assertNull(&quot;AnimalCracker item does not exist&quot;, cracker);</span>
+	    
+	    // Type test
+<span class="fc" id="L70">	    assertTrue(&quot;GummyBear is a vending machine item&quot;, </span>
+<span class="fc" id="L71">	    		gummybear instanceof VendingMachineItem);</span>
+<span class="fc" id="L72">	    assertFalse(&quot;AnimalCracker is NOT a vending machine item&quot;, </span>
+<span class="fc" id="L73">	    		cracker instanceof VendingMachineItem);</span>
+	  
+
+<span class="fc" id="L76">	}</span>
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItem#getName()}.
+	 */
+	@Test
+	public void testGetName() {
+		
+<span class="fc" id="L84">		assertEquals(&quot;GummyBear&quot;,gummybear.getName());</span>
+<span class="fc" id="L85">	}</span>
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItem#getPrice()}.
+	 */
+	@Test
+	public void testGetPrice_PositiveNumber() {
+
+<span class="fc" id="L93">		assertEquals(1.00,gummybear.getPrice(),0.0);</span>
+<span class="fc" id="L94">	}</span>
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItem#getPrice()}.
+	 */
+	/*
+	@Test
+	public void testGetPrice_NegativeNumber() {
+		
+		try
+		{
+			assertEquals(-1.00,cracker.getPrice(),0.01);
+		}
+		catch (VendingMachineException vme)
+		{
+		  return;
+		}
+		
+	}
+	*/	
+	
+		
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span>edu.towson.cis.cosc603.project4.vendingmachine (Apr 10, 2016 11:08:11 AM)</div></body></html>

@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>VendingMachineTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">edu.towson.cis.cosc603.project4.vendingmachine (Apr 10, 2016 11:08:11 AM)</a> &gt; <a href="../../index.html" class="el_group">VendingMachine</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.towson.cis.cosc603.project4.vendingmachine</a> &gt; <span class="el_source">VendingMachineTest.java</span></div><h1>VendingMachineTest.java</h1><pre class="source lang-java linenums">/**
+ * 
+ */
+package edu.towson.cis.cosc603.project4.vendingmachine;
+
+import junit.framework.TestCase;
+
+import org.junit.After;
+import org.junit.Before;
+//import org.junit.Rule;
+import org.junit.Test;
+//import org.junit.rules.ExpectedException;
+
+
+
+/**
+
+ * @author MarleneRZ
+ *
+ */
+<span class="fc" id="L21">public class VendingMachineTest extends TestCase  {</span>
+
+	VendingMachine vMachine;
+	VendingMachineItem item;
+	
+	
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+	
+<span class="fc" id="L33">		vMachine= new VendingMachine();</span>
+<span class="fc" id="L34">		item = new VendingMachineItem(&quot;GummyBear&quot;, 2.25);</span>
+<span class="fc" id="L35">	}</span>
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+	
+<span class="fc" id="L43">		vMachine = null;</span>
+<span class="fc" id="L44">		item = null;</span>
+<span class="fc" id="L45">	}</span>
+
+	
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#addItem(edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItem, java.lang.String)}.
+	 */
+	@Test
+	public void testAddItem_EmptySlot() {
+		
+		/*Test slot code A is empty, then add item to slot A
+		 * Expected result: item is at slot code A
+		 */
+<span class="fc" id="L58">		assertEquals(null, vMachine.getItem(VendingMachine.A_CODE));</span>
+<span class="fc" id="L59">		vMachine.addItem(item, VendingMachine.A_CODE);</span>
+<span class="fc" id="L60">		assertSame(item, vMachine.getItem(VendingMachine.A_CODE));</span>
+		
+<span class="fc" id="L62">	}</span>
+	
+	/**
+	 * Test add item to occupied slot A
+	 */
+
+	@Test(expected=VendingMachineException.class)
+	public void testAddItem_OccupiedSlot() {
+	
+		/* Test: Slot code A is occupied, add item to slot A
+		 * Expected result: VendingMachineException thrown
+		 */
+	try {
+		
+<span class="fc" id="L76">		assertEquals(null, vMachine.getItem(VendingMachine.A_CODE));</span>
+<span class="fc" id="L77">	    vMachine.addItem(new VendingMachineItem(&quot;Snicker&quot;, 1.00), VendingMachine.A_CODE);</span>
+<span class="nc" id="L78">		vMachine.addItem (new VendingMachineItem(&quot;Snapple&quot;, 1.00),VendingMachine.A_CODE );</span>
+<span class="pc" id="L79">		} catch (VendingMachineException e) {</span>
+			//System.err.println(&quot;Caught Exception: &quot; + e.getMessage());
+	//		return;
+<span class="fc" id="L82">			final String msg = &quot;Slot A already occupied&quot;;</span>
+<span class="fc" id="L83">			 assertEquals(msg, e.getMessage());</span>
+			 // return;
+		}
+       //fail(&quot;Expected VendingMachineException - Slot A already occupied&quot;);
+		
+
+<span class="fc" id="L89">	}</span>
+
+	/**
+	 * Test add item into an invalid slot E
+	 */
+//	@Rule
+  //  public final ExpectedException exception = ExpectedException.none();
+
+	@Test(expected=VendingMachineException.class)
+	
+	public void testAddItem_InvalidSlot() {
+	
+		/* Test: Slot code E does not exist, add item to slot E
+		 * Expected result: VendingMachineException thrown
+		 */
+		try {
+<span class="nc" id="L105">		vMachine.addItem(item, &quot;E&quot;);</span>
+<span class="nc" id="L106">		fail(&quot;Expected VendingMachineException - Slot E does not exist&quot;);</span>
+		
+		//exception.expect(VendingMachineException.class);
+		//exception.expect(vMachine.addItem(item, &quot;E&quot;));
+		//exception.expectMessage(vMachine.);
+		//vMachine.addItem(item, &quot;E&quot;);
+		
+			
+			//assertTrue((Arrays.asList(vMachine.itemArray[3]).contains(vendingMachineItem3)));
+<span class="pc" id="L115">		} catch (VendingMachineException vme) {</span>
+<span class="fc" id="L116">		  final String msg = &quot;Invalid code for vending machine item&quot;;</span>
+<span class="fc" id="L117">		  assertEquals(msg, vme.getMessage());</span>
+			//return;
+		}
+<span class="fc" id="L120">	}</span>
+	
+		
+
+	//}
+
+	/**
+	 * Remove item from empty slot
+	 */
+	@Test(expected=VendingMachineException.class)
+	public void testRemoveItem_EmptySlot() {
+		
+		/*
+		 * Test: Remove item from empty slot B
+		 * Expected result:  VendingMachineException thrown
+		 */
+<span class="fc" id="L136">		assertNull(vMachine.getItem(VendingMachine.B_CODE));</span>
+		try {
+<span class="nc" id="L138">			vMachine.removeItem(VendingMachine.B_CODE);</span>
+<span class="pc" id="L139">		} catch (VendingMachineException vme) {</span>
+<span class="fc" id="L140">			return;</span>
+		}
+		//fail(&quot;Expected VendingMachineException - Slot B is empty&quot;);
+
+		
+<span class="nc" id="L145">	}</span>
+	
+	/**
+	 * Remove item from invalid slot E
+	 */
+	@Test(expected=VendingMachineException.class)
+	public void testRemoveItem_IvalidSlot() {
+		
+		/*
+		 * Test: Remove item from empty slot E
+		 * Expected result:  VendingMachineException thrown
+		 */
+		
+		try {
+<span class="nc" id="L159">			vMachine.removeItem(&quot;E&quot;);</span>
+<span class="nc" id="L160">			fail(&quot;Expected VendingMachineException - Slot E does not exist&quot;);	</span>
+			
+<span class="pc" id="L162">		} catch (VendingMachineException vme) {</span>
+<span class="fc" id="L163">			return;</span>
+		}
+		
+
+		
+<span class="nc" id="L168">	}</span>
+	
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#removeItem(java.lang.String)}.
+	 */
+	@Test(expected=VendingMachineException.class)
+	public void testRemoveItem_NoEmptyValidSlot() {
+		
+		//make sure item exists in slot firs
+<span class="fc" id="L177">		vMachine.addItem(item, VendingMachine.A_CODE);</span>
+<span class="fc" id="L178">		assertNotNull(vMachine.getItem(VendingMachine.A_CODE));</span>
+		
+	// Expected result:  item removed and slot A is empty
+			
+<span class="fc" id="L182">		vMachine.removeItem(VendingMachine.A_CODE);</span>
+<span class="fc" id="L183">		assertNull(vMachine.getItem(VendingMachine.A_CODE));</span>
+
+		
+<span class="fc" id="L186">	}</span>
+
+	/**
+	 * Test method for inserting money less than zero
+	 *
+	 */
+	@Test(expected=VendingMachineException.class)
+	public void testInsertMoney_LessZero() {
+		
+		/*
+		 * Test: Insert money &lt; 0
+		 * Expected result:  VendingMachineException thrown
+		 */
+		
+		try {
+<span class="nc" id="L201">			vMachine.insertMoney(-.75);</span>
+<span class="nc" id="L202">			fail(&quot;Expected VendingMachineException - Amount less than 0&quot;);</span>
+<span class="pc" id="L203">		} catch (VendingMachineException vme) {</span>
+<span class="fc" id="L204">			final String msg = &quot;Invalid amount.  Amount must be &gt;= 0&quot;; </span>
+<span class="fc" id="L205">			assertEquals( msg, vme.getMessage()); </span>
+
+		}
+		
+
+
+<span class="fc" id="L211">	}</span>
+
+	/**
+	 * Test method for inserting money equal to zero
+	 *
+	 */
+	@Test
+	public void testInsertMoney_Zero() {
+		
+		/*
+		 * Test: Insert money equal zero
+		 * Expected result:  balance is 0.00
+		 */
+		
+		//make sure initial balance is 0.00
+<span class="fc" id="L226">		assertEquals(0.00, vMachine.getBalance());</span>
+<span class="fc" id="L227">		vMachine.insertMoney(0.00);</span>
+<span class="fc" id="L228">		assertEquals(0.00, vMachine.getBalance());</span>
+
+
+<span class="fc" id="L231">	}</span>
+	
+	
+	/**
+	 * Test method for inserting money greater than zero
+	 *Inserting 3.50
+	 */
+	@Test
+	public void testInsertMoney_GreaterZero() {
+		
+		/*
+		 * Test: Insert money &gt; 0 . Initial balance is 0.00
+		 * Expected result:  balance is 3.50
+		 */
+		
+		//make sure initial balance is 0.00
+<span class="fc" id="L247">		assertEquals(0.00, vMachine.getBalance());</span>
+<span class="fc" id="L248">		vMachine.insertMoney(3.50);</span>
+<span class="fc" id="L249">		assertEquals(3.50, vMachine.getBalance());</span>
+
+
+<span class="fc" id="L252">	}</span>
+	
+	
+	/**
+	 * Test method for inserting money greater with balance Greater than zero
+	 *Inserting 3.50. Initial balance 5.0
+	 */
+	@Test
+	public void testInsertMoney_BalanceGTZero() {
+		
+		/*
+		 * Test: Insert money 3.50 . Initial balance is 5.00
+		 * Expected result:  balance is 8.50
+		 */
+		
+		//make sure initial balance is 0.00
+		
+<span class="fc" id="L269">		assertEquals(0.00, vMachine.getBalance());</span>
+<span class="fc" id="L270">		vMachine.insertMoney(5.00);</span>
+<span class="fc" id="L271">		assertEquals(5.00, vMachine.getBalance());</span>
+<span class="fc" id="L272">		vMachine.insertMoney(3.50);</span>
+<span class="fc" id="L273">		assertEquals(8.50, vMachine.getBalance());</span>
+
+
+<span class="fc" id="L276">	}</span>
+	/**
+	 * Test Balance starts at zero
+	 */
+	@Test
+	public void testGetBalance_Zero() {
+		
+		/*
+		 * Test: Vending machine balance starts with 0.00
+		 * Expected result: balance is 0.00
+		 */
+<span class="fc" id="L287">		assertEquals(0.00, vMachine.getBalance());</span>
+
+<span class="fc" id="L289">	}</span>
+
+	/**
+	 * Test Balance sGreater than zero
+	 */
+	@Test
+	public void testGetBalance_GTZero() {
+		
+		/*
+		 * Test: Vending machine balance starts with 3.00
+		 * Expected result: balance =3.00
+		 */
+<span class="fc" id="L301">		vMachine.balance = 3.00;</span>
+<span class="fc" id="L302">		assertEquals(3.00, vMachine.balance);</span>
+<span class="fc" id="L303">		assertEquals(vMachine.balance, vMachine.getBalance());</span>
+
+
+<span class="fc" id="L306">	}</span>
+	
+	
+	/**
+	 * Test Balance less than zero
+	 */
+	@Test(expected=VendingMachineException.class)
+	public void testGetBalance_LTZero() {
+		
+		/*
+		 * Test: Vending machine balance -2.00
+		* Expected Result: VendingMachineException thrown (balance should not be less than 0)
+    	 */
+		
+		
+		try {
+<span class="fc" id="L322">			vMachine.balance = -2.00;</span>
+<span class="nc" id="L323">			double balance2 = vMachine.getBalance();</span>
+<span class="nc" id="L324">			System.out.println(balance2);</span>
+	//	} catch (VendingMachineException e) {
+			//System.err.println(&quot;Caught Exception: &quot; + e.getMessage());
+		//	return;
+			
+<span class="pc" id="L329">		} catch (VendingMachineException vme) {</span>
+<span class="fc" id="L330">			  final String msg = &quot;Invalid amount.  Amount must be &gt;= 0&quot;;</span>
+<span class="fc" id="L331">			  assertEquals(msg, vme.getMessage());</span>
+			//System.err.println(&quot;Caught Exception: &quot; + vme.getMessage());
+		}
+		//fail(&quot;Expected VendingMachineException - Balance is less than 0&quot;);
+
+<span class="fc" id="L336">	}</span>
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#makePurchase(java.lang.String)}.
+	 */
+	@Test
+	public void testMakePurchase_BalanceTHZero() {
+		
+		
+		/*
+		 * Test: Make purchase from occupied slot A, 
+		 * item costs is 2.25
+		 * initial balance is 3.00  &gt; 2.25
+		 * Expected result: return true
+		 *     final balance is 0.75 &gt; 0
+		 *     item at slot A is null
+		 */
+<span class="fc" id="L352">		vMachine.addItem(item, VendingMachine.A_CODE);</span>
+<span class="fc" id="L353">		vMachine.balance = 3.00;</span>
+<span class="fc" id="L354">		assertTrue(vMachine.makePurchase(VendingMachine.A_CODE));</span>
+<span class="fc" id="L355">		assertNull(vMachine.getItem(VendingMachine.A_CODE));</span>
+<span class="fc" id="L356">		assertEquals(0.75, vMachine.getBalance());</span>
+
+		
+<span class="fc" id="L359">	}</span>
+	
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#makePurchase(java.lang.String)}.
+	 */
+	@Test
+	public void testMakePurchase_BalanceEQZero() {
+		
+		
+		/*
+		 * Test: Make purchase from occupied slot A, 
+		 * item costs is 2.25
+		 * initial balance is 2.25 &gt; 0
+		 * Expected result: return true
+		 *     final balance is 0
+		 *     item at slot A is null
+		 */
+<span class="fc" id="L376">		vMachine.addItem(item, VendingMachine.A_CODE);</span>
+<span class="fc" id="L377">		vMachine.balance = 2.25;</span>
+<span class="fc" id="L378">		assertTrue(vMachine.makePurchase(VendingMachine.A_CODE));</span>
+<span class="fc" id="L379">		assertNull(vMachine.getItem(VendingMachine.A_CODE));</span>
+<span class="fc" id="L380">		assertEquals(0.00, vMachine.getBalance());</span>
+
+		
+<span class="fc" id="L383">	}</span>
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#makePurchase(java.lang.String)}.
+	 */
+	@Test
+	public void testMakePurchase_InitBalanceLTPrice() {
+		
+		
+		/*
+		 * Test: Make purchase from occupied slot A, 
+		 * item costs is 2.25
+		 * initial balance is 1.00 &lt;2.25 purchase price
+		 * Expected result: return false
+		 *     final balance is 1.00
+		 *     item at slot A is not null
+		 */
+<span class="fc" id="L400">		vMachine.addItem(item, VendingMachine.A_CODE);</span>
+<span class="fc" id="L401">		vMachine.balance = 1.00;</span>
+<span class="fc" id="L402">		assertFalse(vMachine.makePurchase(VendingMachine.A_CODE));</span>
+<span class="fc" id="L403">		assertNotNull(vMachine.getItem(VendingMachine.A_CODE));</span>
+<span class="fc" id="L404">		assertEquals(1.00, vMachine.getBalance());</span>
+
+		
+<span class="fc" id="L407">	}</span>
+	
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#makePurchase(java.lang.String)}.
+	 */
+	@Test
+	public void testMakePurchase_EmptySlot() {
+		
+		
+		/*
+		 * Test: Make purchase from unoccupied slot C, 
+		 * item costs is 2.25
+		 * initial balance is 2.25 &gt; 0
+		 * Expected result: return false
+		 *     
+		 *     item at slot B is null
+		 */
+		//vMachine.addItem(item, VendingMachine.A_CODE);
+<span class="fc" id="L425">		vMachine.balance = 2.25;</span>
+<span class="fc" id="L426">		assertFalse(vMachine.makePurchase(VendingMachine.C_CODE));</span>
+<span class="fc" id="L427">		assertNull(vMachine.getItem(VendingMachine.C_CODE));</span>
+<span class="fc" id="L428">		assertEquals(2.25, vMachine.getBalance());</span>
+
+		
+<span class="fc" id="L431">	}</span>
+	
+	
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#makePurchase(java.lang.String)}.
+	 */
+	@Test
+	public void testMakePurchase_EmptySlotD() {
+		
+		
+		/*
+		 * Test: Make purchase from unoccupied slot D, 
+		 * item costs is 2.25
+		 * initial balance is 2.25 &gt; 0
+		 * Expected result: return false
+		 *     
+		 *     item at slot B is null
+		 */
+		//vMachine.addItem(item, VendingMachine.A_CODE);
+<span class="fc" id="L450">		vMachine.balance = 2.25;</span>
+<span class="fc" id="L451">		assertFalse(vMachine.makePurchase(VendingMachine.D_CODE));</span>
+<span class="fc" id="L452">		assertNull(vMachine.getItem(VendingMachine.D_CODE));</span>
+<span class="fc" id="L453">		assertEquals(2.25, vMachine.getBalance());</span>
+
+		
+<span class="fc" id="L456">	}</span>
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#returnChange()}.
+	 */
+	@Test
+	public void testReturnChange_InitBalanceGTZero() {
+		
+		/*
+		 * Test: Return change when purchasing 2.25 item with initial balance of 3.00
+		 * Expected Result: return change 0.75 &gt;0
+		 * final Balance = 0.00
+		 */
+<span class="fc" id="L468">		vMachine.balance = 3.00;</span>
+<span class="fc" id="L469">		vMachine.addItem(item, VendingMachine.A_CODE);</span>
+<span class="fc" id="L470">		vMachine.makePurchase(VendingMachine.A_CODE);</span>
+<span class="fc" id="L471">		assertEquals(0.75, vMachine.returnChange());</span>
+<span class="fc" id="L472">		assertEquals(0.00, vMachine.getBalance());</span>
+		
+<span class="fc" id="L474">	}</span>
+	
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#returnChange()}.
+	 */
+	@Test
+	public void testReturnChange_InitBalanceLTPrice() {
+		
+		/*
+		 * Test: Return change when purchasing 2.25 item with initial balance of 1.00
+		 * Expected Result: return change 1.00 &gt;0
+		 * final Balance = 0.00
+		 */
+<span class="fc" id="L487">		vMachine.balance = 1.00;</span>
+<span class="fc" id="L488">		vMachine.addItem(item, VendingMachine.A_CODE);</span>
+<span class="fc" id="L489">		vMachine.makePurchase(VendingMachine.A_CODE);</span>
+<span class="fc" id="L490">		assertEquals(1.00, vMachine.returnChange());</span>
+<span class="fc" id="L491">		assertEquals(0.00, vMachine.getBalance());</span>
+		
+<span class="fc" id="L493">	}</span>
+
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc603.project4.vendingmachine.VendingMachine#returnChange()}.
+	 */
+	@Test(expected=VendingMachineException.class)
+	public void testMakePurchase_InitBalanceLTZero() {
+		
+		/*
+		 * Test: Make Purchase when purchasing 2.25 item with initial balance of -1.00
+		 * Expected Result: Exception thrown
+		 * final Balance = 0.00
+		try { */
+		try{
+<span class="fc" id="L508">		vMachine.balance = -1.00;</span>
+		
+<span class="nc" id="L510">			vMachine.makePurchase(VendingMachine.A_CODE);</span>
+<span class="pc" id="L511">		} catch (VendingMachineException vme) {</span>
+<span class="fc" id="L512">			return;</span>
+		}
+		//fail(&quot;Expected VendingMachineException - Cannot return negative change&quot;);
+		
+<span class="nc" id="L516">	}</span>
+
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span>edu.towson.cis.cosc603.project4.vendingmachine (Apr 10, 2016 11:08:11 AM)</div></body></html>

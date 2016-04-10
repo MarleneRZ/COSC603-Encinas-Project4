@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SessionExportWizard">
+		<item value="HTML" key="SessionExportPage1.format"/>
+		<list key="SessionExportPage1.destinations">
+			<item value="C:\Users\Marlene\git\COSC603-Encinas-Project4\New folder"/>
+		</list>
+	</section>
+</section>
