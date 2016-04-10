@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="edu.towson.cis.cosc603.project4.vendingmachine" project="VendingMachine" tests="48" started="24" failures="0" errors="0" ignored="0">
+  <testsuite name="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItemTest" incomplete="true">
+    <testcase name="testVendingMachineItem" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItemTest" incomplete="true"/>
+    <testcase name="testGetName" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItemTest" incomplete="true"/>
+    <testcase name="testGetPrice_PositiveNumber" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItemTest" incomplete="true"/>
+  </testsuite>
+  <testsuite name="edu.towson.cis.cosc603.project4.vendingmachine.AllTests">
+    <testsuite name="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItemTest" time="0.018">
+      <testcase name="testVendingMachineItem" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItemTest" time="0.001"/>
+      <testcase name="testGetName" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItemTest" time="0.001"/>
+      <testcase name="testGetPrice_PositiveNumber" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineItemTest" time="0.002"/>
+    </testsuite>
+    <testsuite name="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true">
+      <testcase name="testMakePurchase_BalanceEQZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testAddItem_InvalidSlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testMakePurchase_BalanceTHZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testMakePurchase_EmptySlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testInsertMoney_LessZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testGetBalance_Zero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testRemoveItem_EmptySlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testMakePurchase_InitBalanceLTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testAddItem_OccupiedSlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testInsertMoney_GreaterZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testAddItem_EmptySlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testRemoveItem_IvalidSlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testMakePurchase_InitBalanceLTPrice" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testMakePurchase_EmptySlotD" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testRemoveItem_NoEmptyValidSlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testGetBalance_GTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testInsertMoney_BalanceGTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testGetBalance_LTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testReturnChange_InitBalanceGTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testInsertMoney_Zero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+      <testcase name="testReturnChange_InitBalanceLTPrice" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" incomplete="true"/>
+    </testsuite>
+  </testsuite>
+  <testsuite name="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.023">
+    <testcase name="testMakePurchase_BalanceEQZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.0"/>
+    <testcase name="testAddItem_InvalidSlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.005"/>
+    <testcase name="testMakePurchase_BalanceTHZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.0"/>
+    <testcase name="testMakePurchase_EmptySlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.001"/>
+    <testcase name="testInsertMoney_LessZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.0"/>
+    <testcase name="testGetBalance_Zero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.0"/>
+    <testcase name="testRemoveItem_EmptySlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.001"/>
+    <testcase name="testMakePurchase_InitBalanceLTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.0"/>
+    <testcase name="testAddItem_OccupiedSlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.001"/>
+    <testcase name="testInsertMoney_GreaterZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.004"/>
+    <testcase name="testAddItem_EmptySlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.002"/>
+    <testcase name="testRemoveItem_IvalidSlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.002"/>
+    <testcase name="testMakePurchase_InitBalanceLTPrice" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.009"/>
+    <testcase name="testMakePurchase_EmptySlotD" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.0"/>
+    <testcase name="testRemoveItem_NoEmptyValidSlot" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.001"/>
+    <testcase name="testGetBalance_GTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.0"/>
+    <testcase name="testInsertMoney_BalanceGTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.0"/>
+    <testcase name="testGetBalance_LTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.001"/>
+    <testcase name="testReturnChange_InitBalanceGTZero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.002"/>
+    <testcase name="testInsertMoney_Zero" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.001"/>
+    <testcase name="testReturnChange_InitBalanceLTPrice" classname="edu.towson.cis.cosc603.project4.vendingmachine.VendingMachineTest" time="0.001"/>
+  </testsuite>
+</testrun>
