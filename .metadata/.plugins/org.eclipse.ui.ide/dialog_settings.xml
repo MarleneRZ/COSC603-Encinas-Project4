@@ -5,6 +5,7 @@
 		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Marlene\git\COSC603VMOriginal\VendingMachine2"/>
 			<item value="C:\Users\Marlene\git\COSC603-Encinas2-Project4"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
